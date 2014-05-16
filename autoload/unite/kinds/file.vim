@@ -733,8 +733,7 @@ function! s:kind.action_table.vimfiler__execute.func(candidates) "{{{
 
     for candidate in a:candidates
       let path = candidate.action__path
-      if unite#util#is_windows() && path =~ '^//'
-        " substitute separator for UNC.
+      if unite#util#is_windows()
         let path = substitute(path, '/', '\\', 'g')
       endif
 
